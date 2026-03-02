@@ -1,0 +1,206 @@
+/* Grouping Layer Styles */
+.group-layer {
+  position: relative;
+  user-select: none;
+  cursor: move;
+}
+
+.group-layer:hover {
+  opacity: 0.9;
+}
+
+.group-layer.selected {
+  /* Remove the blue drop-shadow to keep border consistent */
+}
+
+/* Group title styling */
+.group-title {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+/* Group controls */
+.group-controls {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.group-layer:hover .group-controls,
+.group-layer.selected .group-controls {
+  opacity: 1;
+}
+
+/* Animate group creation */
+@keyframes groupCreate {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.group-layer-entering {
+  animation: groupCreate 0.3s ease-out;
+}
+
+/* Selection styles for ReactFlow */
+.react-flow__node-group {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.react-flow__node-group.selected {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Completely disable ReactFlow selection rectangle */
+.react-flow__node-group::before,
+.react-flow__node-group::after {
+  display: none !important;
+}
+
+.react-flow__node-group .react-flow__selection,
+.react-flow__node-group.selected .react-flow__selection {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.react-flow__selection-rect {
+  display: none !important;
+}
+
+/* Context menu positioning */
+.group-context-menu {
+  z-index: 1000;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+  min-width: 160px;
+}
+
+.dark .group-context-menu {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+/* Color picker grid */
+.color-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 8px;
+}
+
+.color-picker-button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.color-picker-button:hover {
+  transform: scale(1.1);
+  border-color: #000;
+}
+
+.color-picker-button.selected {
+  border-color: #000;
+  transform: scale(1.15);
+}
+
+/* Group selection indication */
+.group-selection-indicator {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 16px;
+  height: 16px;
+  background: #3b82f6;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: white;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* ONLY disable selection styling for GROUP nodes */
+.react-flow__node-group,
+.react-flow__node-group.selected,
+.react-flow__node-group.selectable,
+.react-flow__node-group.selectable.selected,
+div[data-id*="group"].react-flow__node,
+div[data-id*="group"].react-flow__node.selected,
+div[data-id*="group_"].react-flow__node,
+div[data-id*="group_"].react-flow__node.selected {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+/* Disable NodeResizer default styling */
+.react-flow__resize-control {
+  border: none !important;
+  background: rgba(59, 130, 246, 0.8) !important;
+}
+
+.react-flow__resize-control.react-flow__resize-control-variant-line {
+  background: rgba(59, 130, 246, 0.6) !important;
+  border: none !important;
+}
+
+/* ReactFlow Drag Selection Rectangle - ALWAYS VISIBLE */
+.react-flow__selection-rect {
+  background: rgba(59, 130, 246, 0.1) !important;
+  border: 2px solid #3b82f6 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Hide node selection indicators ONLY for group nodes */
+.react-flow__node-group .react-flow__selection,
+.react-flow__node-group::after,
+.react-flow__node-group::before,
+div[data-id*="group"] .react-flow__selection,
+div[data-id*="group"]::after,
+div[data-id*="group"]::before,
+.react-flow__node[data-nodetype="group"]::after,
+.react-flow__node[data-nodetype="group"]::before,
+.react-flow__node[data-nodetype="group"] .react-flow__selection {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .group-controls {
+    opacity: 1; /* Always show on mobile */
+  }
+  
+  .group-context-menu {
+    min-width: 140px;
+  }
+}

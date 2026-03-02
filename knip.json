@@ -1,0 +1,15 @@
+{
+  "$schema": "https://unpkg.com/knip@latest/schema.json",
+  "entry": [
+    "src/pages/voice-new/index.tsx",
+    "src/pages/voice-new-create/index.tsx"
+  ],
+  "project": [
+    "src/pages/voice-new/**/*.{ts,tsx}",
+    "src/pages/voice-new-create/**/*.{ts,tsx}"
+  ],
+  "include": [
+    "files",
+    "exports"
+  ]
+}

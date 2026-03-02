@@ -1,0 +1,187 @@
+/* React Flow Theme Overrides for Light/Dark Mode */
+
+/* React Flow container background */
+.react-flow {
+  background-color: hsl(var(--background)) !important;
+}
+
+/* Light mode specific background */
+:root:not(.dark) .react-flow {
+  background-color: #ffffff !important;
+}
+
+/* Dark mode specific background */
+.dark .react-flow {
+  background-color: #020817 !important;
+}
+
+/* Background pattern dots color adjustment */
+.react-flow__background {
+  background-color: transparent !important;
+}
+
+.react-flow__background pattern circle {
+  fill: rgb(156, 163, 175);
+}
+
+:root:not(.dark) .react-flow__background pattern circle {
+  fill: rgb(107, 114, 128);
+  opacity: 0.5;
+}
+
+.dark .react-flow__background pattern circle {
+  fill: rgb(156, 163, 175);
+  opacity: 0.6;
+}
+
+/* Ensure the SVG background is transparent */
+.react-flow__background svg {
+  background-color: transparent !important;
+}
+
+/* Edge colors */
+.react-flow__edge-path {
+  stroke: hsl(var(--muted-foreground)) !important;
+  stroke-width: 2;
+}
+
+.react-flow__edge-path:hover {
+  stroke: hsl(var(--foreground)) !important;
+  stroke-width: 3;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: hsl(var(--primary)) !important;
+  stroke-width: 3;
+}
+
+/* Edge label background */
+.react-flow__edge-label {
+  background: hsl(var(--card)) !important;
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+/* Edge text styling */
+.react-flow__edge-text {
+  fill: hsl(var(--foreground)) !important;
+}
+
+.react-flow__edge-textbg {
+  fill: hsl(var(--card)) !important;
+  fill-opacity: 0.95 !important;
+  stroke: hsl(var(--border)) !important;
+  stroke-width: 1px !important;
+}
+
+/* Controls */
+.react-flow__controls {
+  background: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.react-flow__controls-button {
+  background: hsl(var(--card)) !important;
+  border-bottom: 1px solid hsl(var(--border)) !important;
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+.react-flow__controls-button:hover {
+  background: hsl(var(--accent)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Selection box */
+.react-flow__selection {
+  background: hsl(var(--primary) / 0.08) !important;
+  border: 1px solid hsl(var(--primary)) !important;
+}
+
+/* Node selection */
+.react-flow__node.selected {
+  box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.4), 0 0 30px rgba(250, 204, 21, 0.3), 0 0 60px rgba(250, 204, 21, 0.15) !important;
+}
+
+/* Handle styles */
+.react-flow__handle {
+  background: hsl(var(--foreground)) !important;
+  border: 2px solid hsl(var(--foreground)) !important;
+}
+
+.react-flow__handle:hover {
+  background: hsl(var(--foreground)) !important;
+  border-color: hsl(var(--foreground)) !important;
+}
+
+.react-flow__handle-connecting {
+  background: hsl(var(--primary)) !important;
+  border-color: hsl(var(--primary)) !important;
+}
+
+/* Connection line */
+.react-flow__connection-path {
+  stroke: hsl(var(--primary)) !important;
+  stroke-width: 2;
+}
+
+/* Minimap */
+.react-flow__minimap {
+  background: hsl(var(--background)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+}
+
+.react-flow__minimap-mask {
+  fill: hsl(var(--card)) !important;
+}
+
+.react-flow__minimap-node {
+  fill: hsl(var(--muted)) !important;
+  stroke: hsl(var(--border)) !important;
+}
+
+/* Attribution */
+.react-flow__attribution {
+  background: hsl(var(--background) / 0.8) !important;
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+/* Panel */
+.react-flow__panel {
+  background: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Animated edges */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+.react-flow__edge.animated .react-flow__edge-path {
+  stroke-dasharray: 5;
+  animation: dash 0.5s linear infinite;
+}
+
+/* Custom scrollbar for dark mode */
+.dark .react-flow__node *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dark .react-flow__node *::-webkit-scrollbar-track {
+  background: hsl(var(--card));
+}
+
+.dark .react-flow__node *::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+.dark .react-flow__node *::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}

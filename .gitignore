@@ -1,0 +1,50 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+/node_modules
+# Env files
+.env
+.env.*
+!.env.example
+
+# Local tooling / secret-scrub helpers (never commit)
+.git-filter-repo-replacements.txt
+
+build.sh
+
+.claude
+
+# Local investigation notes (markdown)
+CORS-investigation.md
+MongoDB connections.md
+TOOL_ACTIONS_ENDPOINTS_RESPONSE_HANDLING.md
+TOOL_CONFIGS_TO_OPENAI_FUNCTIONS.md
+
+
+.agents
+.cursor
+.opencode
+build.sh
+frontend-livekit-reference

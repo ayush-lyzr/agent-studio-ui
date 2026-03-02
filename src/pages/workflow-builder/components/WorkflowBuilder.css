@@ -1,0 +1,144 @@
+/* Custom styling for the WorkflowBuilder component */
+
+/* Modern custom scrollbar for the entire app */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Modern ReactFlow styling overrides */
+.react-flow {
+  background-color: #f9fafc !important;
+}
+
+.dark .react-flow {
+  background-color: #111827 !important;
+}
+
+.react-flow__controls {
+  background: white;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.dark .react-flow__controls {
+  background: #1f2937;
+  border: 1px solid #374151;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+.react-flow__controls-button {
+  border-radius: 4px !important;
+  border: none !important;
+  background: transparent !important;
+  color: #4b5563 !important;
+  margin: 2px !important;
+  width: 20px !important;
+  height: 20px !important;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.dark .react-flow__controls-button {
+  color: #9ca3af !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.dark .react-flow__controls-button:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.react-flow__controls-button path {
+  fill: currentColor !important;
+}
+
+.react-flow__minimap {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.dark .react-flow__minimap {
+  border: 1px solid #374151;
+  background-color: rgba(31, 41, 55, 0.8) !important;
+}
+
+/* Node Styles */
+.react-flow__node {
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* Remove transition for better drag performance */
+}
+
+.react-flow__node:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.react-flow__node.selected {
+  box-shadow: 0 0 0 2px var(--color-primary, #4f46e5);
+}
+
+/* Optimize drag performance */
+.react-flow__node.dragging {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Edge styles */
+.react-flow__edge-path {
+  stroke-width: 3;
+  transition:
+    stroke-width 0.2s,
+    stroke 0.2s;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke-width: 3;
+  stroke: var(--color-primary, #4f46e5) !important;
+}
+
+/* Background pattern */
+.react-flow__background {
+  opacity: 0.3;
+}
+
+.dark .react-flow__background {
+  opacity: 0.2;
+}
